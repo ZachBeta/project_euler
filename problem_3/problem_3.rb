@@ -1,6 +1,6 @@
 # Largest prime factor of 13195 is 29.  Factors are 5, 7, 13, 29
 
-starting_number = 13195
+starting_number = 600851475143
 
 # we need to factor this
 # naiively we can just try every possible number and keep dividing
