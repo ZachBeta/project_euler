@@ -24,8 +24,8 @@ end
 
 palindromes = {}
 
-for i in 10..99
-  for j in 10..99
+for i in 100..999
+  for j in 100..999
     #puts (i*j).to_s + "=" + i.to_s + "*" + j.to_s
     if is_palindrome(i*j)
       palindromes[i*j] = [i,j]
