@@ -15,7 +15,7 @@ Find the difference between the sum of the squares of the first one hundred natu
 sum_of_squares = 0
 sum = 0
 
-for i in 1..10
+for i in 1..100
   sum_of_squares = sum_of_squares + i*i
   sum += i
 end
