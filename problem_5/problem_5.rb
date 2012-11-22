@@ -18,7 +18,7 @@ would inflate the result
 3
 4
 
-if we naiively multiply all numbers, we will "double count" 2
+if we naively multiply all numbers, we will "double count" 2
 
 Thus we care that the numbers are coprime before multiplying them
 

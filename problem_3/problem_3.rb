@@ -3,7 +3,7 @@
 starting_number = 600851475143
 
 # we need to factor this
-# naiively we can just try every possible number and keep dividing
+# naively we can just try every possible number and keep dividing
 # like I did back on a ti83
 # for i in 0 to n
 #   if n%i == 0
