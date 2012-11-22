@@ -38,7 +38,7 @@ for example, when 4 came up I divided as much as possible by prior numbers
 trimmed_numbers = []
 aggregate_number = 1
 
-for i in 1..10
+for i in 1..20
   trimmed_i = i
   for j in trimmed_numbers
     if trimmed_i%j==0
