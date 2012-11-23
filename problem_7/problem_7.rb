@@ -17,6 +17,8 @@ Oh well.  I can always improve it later
 
 =end
 
+require 'time_diff'
+
 def is_prime(number)
   divisor = 2
   if number == 2
@@ -36,13 +38,17 @@ end
 primes = []
 number_of_primes = 0
 test_number = 2
+start_time = Time.now
 
-while number_of_primes < 6
+while number_of_primes < 10001
   if is_prime(test_number)
     number_of_primes += 1
     primes.push(test_number)
+    puts test_number.to_s + ": " + number_of_primes.to_s
   end
   test_number += 1
 end
 
-puts primes
+end_time = Time.now
+
+puts "Duration: " + Time.diff(start_time,end_time)[:diff]
