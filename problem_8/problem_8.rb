@@ -25,6 +25,14 @@ Find the greatest product of five consecutive digits in the 1000-digit number.
 
 =end
 
+def sum_of_digits(digits)
+  product = 1
+  (0..4).each do |i|
+    product *= digits[i].to_i
+  end
+  return product
+end
+
 a_big_number_string = "73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
@@ -49,8 +57,16 @@ a_big_number_string = "73167176531330624919225119674426574742355349194934
 a_big_number_string.gsub!(/[\s]/, "")
 iterator = 0
 number_length = a_big_number_string.length
+biggest_number_product = 0
+biggest_number_string = ""
 
 while iterator < number_length - 5
-  puts a_big_number_string[iterator,5]
+  digits = a_big_number_string[iterator,5]
+
+  if sum_of_digits(digits) > biggest_number_product
+    biggest_number_product = sum_of_digits(digits)
+    biggest_number_string = digits
+    puts sum_of_digits(digits).to_s + " from " + digits.to_s
+  end
   iterator += 1
 end
