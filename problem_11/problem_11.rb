@@ -58,6 +58,64 @@ the_grid_string.split("\n").each do |line|
   end
   the_grid << the_row
 end
+largest_product = 0
 
-puts the_grid.length
-puts the_grid[0].length
+#rows
+(0..19).each do |row|
+  (0..16).each do |col|
+    current_product = the_grid[row][col] *
+      the_grid[row][col+1] *
+      the_grid[row][col+2] *
+      the_grid[row][col+3]
+    puts row.to_s + " " + col.to_s + " = " + current_product.to_s
+    if largest_product < current_product
+      largest_product = current_product
+    end
+  end
+end
+puts largest_product
+
+#columns
+(0..16).each do |row|
+  (0..19).each do |col|
+    current_product = the_grid[row][col] *
+      the_grid[row+1][col] *
+      the_grid[row+2][col] *
+      the_grid[row+3][col]
+    puts row.to_s + " " + col.to_s + " = " + current_product.to_s
+    if largest_product < current_product
+      largest_product = current_product
+    end
+  end
+end
+puts largest_product
+
+#\
+(0..16).each do |row|
+  (0..16).each do |col|
+    current_product = the_grid[row][col] *
+      the_grid[row+1][col+1] *
+      the_grid[row+2][col+2] *
+      the_grid[row+3][col+3]
+    puts row.to_s + " " + col.to_s + " = " + current_product.to_s
+    if largest_product < current_product
+      largest_product = current_product
+    end
+  end
+end
+puts largest_product
+
+#/
+(0..16).each do |row|
+  (3..19).each do |col|
+    current_product = the_grid[row][col] *
+      the_grid[row+1][col-1] *
+      the_grid[row+2][col-2] *
+      the_grid[row+3][col-3]
+    puts row.to_s + " " + col.to_s + " = " + current_product.to_s
+    if largest_product < current_product
+      largest_product = current_product
+    end
+  end
+end
+puts largest_product
