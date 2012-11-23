@@ -21,11 +21,9 @@ require 'time_diff'
 
 def is_prime(number)
   divisor = 2
-  if number == 2
-    return true
-  end
+  test_number = Math.sqrt(number)
 
-  while divisor < number
+  while divisor <= test_number
     if number % divisor == 0
       return false
     end
