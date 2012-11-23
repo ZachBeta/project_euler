@@ -41,4 +41,16 @@ def count_chain(num)
   return count
 end
 
-puts count_chain(13)
+max_count = 0
+starting_num = 0
+(1..1000000).each do |num|
+  count = count_chain(num)
+  if count > max_count
+    max_count = count
+    starting_num = num
+    puts starting_num.to_s + " -> " + max_count.to_s
+  end
+end
+
+
+# this is super slow... I wonder if it can be done faster
