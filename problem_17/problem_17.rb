@@ -92,11 +92,8 @@ def count_letters(num)
   return word.length
 end
 
-puts count_letters(342)
-puts count_letters(115)
-
 letter_count = 0
-(1..5).each do |num|
+(1..1000).each do |num|
   letter_count += count_letters(num)
 end
 
