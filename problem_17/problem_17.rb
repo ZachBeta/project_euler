@@ -48,13 +48,11 @@ def to_word(num)
   word_lookup[80] = "eighty "
   word_lookup[90] = "ninety "
   trimming_num_str = num.to_s
-  puts trimming_num_str
   word = ""
 
   if trimming_num_str.length == 4
     word += "one thousand "
     trimming_num_str = trimming_num_str[1,trimming_num_str.length-1]
-    puts trimming_num_str
   end
 
   if trimming_num_str.length == 3
@@ -67,7 +65,6 @@ def to_word(num)
       end
     end
     trimming_num_str = trimming_num_str[1,trimming_num_str.length-1]
-    puts trimming_num_str
   end
 
   if trimming_num_str.length == 2
@@ -90,14 +87,17 @@ def to_word(num)
 end
 
 def count_letters(num)
-  puts to_word(num).length
+  word = to_word(num)
+  word.gsub!(/\W/,"")
+  return word.length
 end
 
-puts to_word(1)
-puts to_word(12)
-puts to_word(123)
-puts to_word(1234)
-
-puts count_letters(115)
 puts count_letters(342)
+puts count_letters(115)
 
+letter_count = 0
+(1..5).each do |num|
+  letter_count += count_letters(num)
+end
+
+puts letter_count
