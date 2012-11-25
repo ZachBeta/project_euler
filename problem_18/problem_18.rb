@@ -52,5 +52,29 @@ the_pyramid_string = %q{3
 8 5 9 3
 }
 
+def calc_max_subpyramid(the_pyramid, row, column)
+  #base case error
+  if row >= the_pyramid.length
+    return 0
+  end
 
-puts parse_grid(the_pyramid_string).inspect
+  #base case bottom row
+  if row == the_pyramid.length - 1
+    if column >= the_pyramid[row].length
+      return 0
+    end
+    return the_pyramid[row][column]
+  end
+
+  #recursive
+  left = calc_max_subpyramid(the_pyramid, row+1, column)
+  right = calc_max_subpyramid(the_pyramid, row+1, column+1)
+
+  if left > right
+    return the_pyramid[row][column] + left
+  else
+    return the_pyramid[row][column] + right
+  end
+end
+
+puts calc_max_subpyramid(parse_grid(the_pyramid_string),0,0)
