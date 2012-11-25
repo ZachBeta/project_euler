@@ -18,4 +18,19 @@ names_file.each do |line|
   end
 end
 
-puts names.sort.inspect
+def score_name(name)
+  score = 0
+  name.upcase.each_byte do |char|
+    score += char - 64
+  end
+  return score
+end
+
+sorted_names = names.sort
+total_score = 0
+
+for i in (0..sorted_names.length-1) do
+  total_score += i * score_name(sorted_names[i])
+end
+
+puts total_score
