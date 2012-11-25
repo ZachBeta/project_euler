@@ -20,7 +20,7 @@ end
 
 def score_name(name)
   score = 0
-  name.upcase.each_byte do |char|
+  name.each_byte do |char|
     score += char - 64
   end
   return score
@@ -30,7 +30,15 @@ sorted_names = names.sort
 total_score = 0
 
 for i in (0..sorted_names.length-1) do
-  total_score += i * score_name(sorted_names[i])
+  total_score += (i + 1) * score_name(sorted_names[i])
+  if sorted_names[i] == "COLIN"
+    puts i.to_s
+    puts score_name("COLIN")
+  end
+  if i == 938
+    puts sorted_names[i]
+    puts score_name(sorted_names[i])
+  end
 end
 
 puts total_score
