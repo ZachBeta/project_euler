@@ -23,9 +23,17 @@ def d(n)
     end
   end
 
-  puts divisors.inspect
-  puts divisors.reduce(0,:+)
+  return divisors.reduce(0,:+)
 end
 
-d(220)
-d(284)
+amicable_numbers = []
+
+(1..10000).each do |num|
+  a = num
+  b = d(num)
+  if a != b and a == d(b)
+    amicable_numbers << a
+  end
+end
+
+puts amicable_numbers.reduce(0,:+)
