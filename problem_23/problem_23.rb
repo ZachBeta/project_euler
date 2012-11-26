@@ -27,9 +27,10 @@ abundant_numbers = []
 abundant_number_sums = {}
 
 (1..28123).each do |i|
-  abundant_number_sums[i] = true
+  abundant_number_sums[i] = false
   if abundant?(i)
     abundant_numbers << i
+    puts i
   end
 end
 
@@ -38,8 +39,8 @@ puts "Abundant numbers calculated"
 for i in (0..abundant_numbers.length-1) do
   for j in (i..abundant_numbers.length-1) do
     sum = abundant_numbers[i] + abundant_numbers[j]
-    if sum < 28123
-      abundant_number_sums[sum] = false
+    if sum <= 28123
+      abundant_number_sums[sum] = true
     end
   end
 end
@@ -48,9 +49,11 @@ puts "Abundant sums calculated"
 
 total_sum = 0
 (1..28123).each do |i|
-  if abundant_number_sums[i] == true
+  if abundant_number_sums[i] == false
+    puts i
     total_sum += i
   end
 end
 
+puts "Total sum"
 puts total_sum
