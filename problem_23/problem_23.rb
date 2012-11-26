@@ -14,3 +14,17 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 load 'divisors.rb'
 
 puts divisors(28).inspect
+puts divisors(28).reduce(0,:+)
+
+
+# how do we find numbers that can't be the sum of abundant numbers?
+# all numbers over 28123 can be proven
+# we need to search underneath
+# find all abundant numers underneath that
+# combinatorially try to combine them?
+
+def abundant?(num)
+  return num < divisors(num).reduce(0,:+)
+end
+
+puts abundant?(12)
