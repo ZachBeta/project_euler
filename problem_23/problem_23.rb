@@ -24,11 +24,33 @@ def abundant?(num)
 end
 
 abundant_numbers = []
+abundant_number_sums = {}
 
-(1..100).each do |i|
+(1..28123).each do |i|
+  abundant_number_sums[i] = true
   if abundant?(i)
     abundant_numbers << i
   end
 end
 
-puts abundant_numbers.inspect
+puts "Abundant numbers calculated"
+
+for i in (0..abundant_numbers.length-1) do
+  for j in (i..abundant_numbers.length-1) do
+    sum = abundant_numbers[i] + abundant_numbers[j]
+    if sum < 28123
+      abundant_number_sums[sum] = false
+    end
+  end
+end
+
+puts "Abundant sums calculated"
+
+total_sum = 0
+(1..28123).each do |i|
+  if abundant_number_sums[i] == true
+    total_sum += i
+  end
+end
+
+puts total_sum
