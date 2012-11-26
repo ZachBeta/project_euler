@@ -13,10 +13,6 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 
 load 'divisors.rb'
 
-puts divisors(28).inspect
-puts divisors(28).reduce(0,:+)
-
-
 # how do we find numbers that can't be the sum of abundant numbers?
 # all numbers over 28123 can be proven
 # we need to search underneath
@@ -27,4 +23,12 @@ def abundant?(num)
   return num < divisors(num).reduce(0,:+)
 end
 
-puts abundant?(12)
+abundant_numbers = []
+
+(1..100).each do |i|
+  if abundant?(i)
+    abundant_numbers << i
+  end
+end
+
+puts abundant_numbers.inspect
