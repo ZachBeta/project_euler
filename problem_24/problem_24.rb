@@ -24,8 +24,8 @@ or do I... if the algorithm for permuting is clear, the millionth step will be t
 #solution... calculate them all, give 1000 000th
 
 digits = []
-(0..2).each do |i|
+(0..9).each do |i|
   digits << i
 end
 
-puts digits.permutation.to_a.inspect
+puts digits.permutation.to_a.sort[999999].inspect
