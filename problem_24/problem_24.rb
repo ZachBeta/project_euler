@@ -42,58 +42,31 @@ with 10 characters we have 10*9*8*7*6*5*4*3*2*1
 
 #solution... calculate them all, give 1000 000th
 
+require 'pry'
+
+
 digits = []
 (0..2).each do |i|
   digits << i
 end
 
-
-permutations = []
-for i in (0..digits.length-1)
-  digits_copy = digits.dup
-
-  i_digit = digits_copy.delete_at(i)
-
-  for j in (0..digits_copy.length-1)
-    j_digit = digits_copy.delete_at(j)
-
-    for k in (0..digits_copy.length-1)
-      k_digit = digits_copy.delete_at(k)
-
-      permutations << [i_digit, j_digit, k_digit]
-    end
-  end
-end
-
-=begin
-
-...012
-0...12
-01...2
-012
-02...1
-021
-
-
-=end
-def inception(permutation_so_far, digits_left)
+def inception(permutation_so_far, digits_left, all_permutations)
   #base case, permutation is finished
   if digits_left.length == 0
     return permutation_so_far
   end
 
   #or we need to calculate all of them
-  permutations = []
   for i in (0..digits_left.length-1)
     temp_digits_left = digits_left.dup
     temp_digits_left.delete_at(i)
-    permutations << inception(permutation_so_far + [digits_left[i]], temp_digits_left)
+    all_permutations << inception(permutation_so_far + [digits_left[i]], temp_digits_left, all_permutations)
   end
 
-  return permutations
+  return all_permutations
 end
 
-permutations = inception([],digits)
+permutations = inception([],digits,[])
 puts permutations.inspect
 
-
+binding.pry
