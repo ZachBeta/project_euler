@@ -30,7 +30,7 @@ f[1] = 1
 f[2] = 1
 
 i = 3
-while f[i-1].to_s.length < 3
+while f[i-1].to_s.length < 1000
   f[i] = f[i-1] + f[i-2]
   i+=1
 end
